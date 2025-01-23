@@ -1,0 +1,21 @@
+Package: LimsaR
+Title: Client for SODAR
+Version: 0.0.0.9000
+Authors@R: 
+    person("January", "Weiner", , "january.weiner@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-1438-7819"))
+Description: Allows to communicate with a SODAR server. Provides functions
+    to query projects, download and upload sample sheets, create and
+    activate landing zones etc.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    colorDF,
+    dplyr,
+    httr,
+    isaeditor (>= 0.1.1),
+    jsonlite
+Remotes: 
+    github::bihealth/isaeditor
