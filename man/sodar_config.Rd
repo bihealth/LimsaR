@@ -14,7 +14,7 @@ sodar_config(sodar_api_token, sodar_url, set_options = TRUE)
 \item{set_options}{A logical value indicating whether to set the global options.}
 }
 \value{
-A list containing the SODAR configuration.
+An invisible list containing the SODAR configuration.
 }
 \description{
 This function sets the SODAR configuration.
