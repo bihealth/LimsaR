@@ -1,7 +1,7 @@
 url: https://bihealth.github.io/LimsaR/
 template:
   bootstrap: 5
-  bootswatch: cerulean
+  bootswatch: yeti
 reference:
   - title: Configuration
     desc: Functions for configuring SODAR and iRODS
