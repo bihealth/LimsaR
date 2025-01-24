@@ -9,6 +9,7 @@
 #' @export
 sodar_config <- function(sodar_api_token, sodar_url, set_options = TRUE) {
 
+  sodar_url <- gsub("/*$", "", sodar_url)
   config <- list(token = sodar_api_token, url = sodar_url)
 
   if(set_options) {
