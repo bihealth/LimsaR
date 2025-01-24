@@ -30,9 +30,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="configuration">Configuration<a class="anchor" aria-label="anchor" href="#configuration"></a></h2>
 
-
+      <div class="section-desc"><p>Functions for configuring SODAR and iRODS</p></div>
 
 
     </div><div class="section level2">
@@ -42,34 +42,115 @@
 
       <dl><dt>
 
-          <code><a href="sodar_assay_irods_path.html">sodar_assay_irods_path()</a></code> <code><a href="sodar_assay_irods_path.html">sodar_study_irods_path()</a></code>
-
-        </dt>
-        <dd>Retrieve the iRODS path of an assay or study</dd>
-      </dl><dl><dt>
-
-          <code><a href="sodar_category_list.html">sodar_category_list()</a></code>
-
-        </dt>
-        <dd>Returns a list of all projects and categories belonging to a category</dd>
-      </dl><dl><dt>
-
           <code><a href="sodar_config.html">sodar_config()</a></code>
 
         </dt>
         <dd>Set the SODAR configuration.</dd>
       </dl><dl><dt>
 
+          <code><a href="sodar_whoami.html">sodar_whoami()</a></code>
+
+        </dt>
+        <dd>Returns information about the user making the request</dd>
+      </dl><dl><dt>
+
+          <code><a href="sodar_irods_configuration.html">sodar_irods_configuration()</a></code>
+
+        </dt>
+        <dd>Retrieve the iRODS configuration</dd>
+      </dl></div><div class="section level2">
+      <h2 id="project-management">Project management<a class="anchor" aria-label="anchor" href="#project-management"></a></h2>
+
+      <div class="section-desc"><p>Functions for managing projects</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="sodar_project_create.html">sodar_project_create()</a></code>
+
+        </dt>
+        <dd>Create a new project in SODAR</dd>
+      </dl><dl><dt>
+
+          <code><a href="sodar_project_list.html">sodar_project_list()</a></code>
+
+        </dt>
+        <dd>Get the SODAR project list table.</dd>
+      </dl><dl><dt>
+
+          <code><a href="sodar_project_update.html">sodar_project_update()</a></code>
+
+        </dt>
+        <dd>Update a project or category in SODAR</dd>
+      </dl><dl><dt>
+
+          <code><a href="sodar_project_retrieve.html">sodar_project_retrieve()</a></code>
+
+        </dt>
+        <dd>Retrieve details of a project or category</dd>
+      </dl><dl><dt>
+
+          <code><a href="sodar_category_list.html">sodar_category_list()</a></code>
+
+        </dt>
+        <dd>Returns a list of all projects and categories belonging to a category</dd>
+      </dl></div><div class="section level2">
+      <h2 id="sample-sheets-co-">Sample sheets &amp; co.<a class="anchor" aria-label="anchor" href="#sample-sheets-co-"></a></h2>
+
+      <div class="section-desc"><p>Functions for managing sample sheets and investigations</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="sodar_investigation_retrieve.html">sodar_investigation_retrieve()</a></code>
+
+        </dt>
+        <dd>Retrieve details of an investigation from a project</dd>
+      </dl><dl><dt>
+
+          <code><a href="sodar_sheet_import.html">sodar_sheet_import()</a></code>
+
+        </dt>
+        <dd>Import an ISAtab sample sheet from a file</dd>
+      </dl><dl><dt>
+
+          <code><a href="sodar_sheet_export_zip.html">sodar_sheet_export_zip()</a></code> <code><a href="sodar_sheet_export_zip.html">sodar_sheet_export_json()</a></code>
+
+        </dt>
+        <dd>Export an ISAtab sample sheet from a project</dd>
+      </dl></div><div class="section level2">
+      <h2 id="irods-related-functions">iRODS related functions<a class="anchor" aria-label="anchor" href="#irods-related-functions"></a></h2>
+
+      <div class="section-desc"><p>Functions related to iRODS and iRODS paths</p></div>
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="sodar_irods_configuration.html">sodar_irods_configuration()</a></code>
+
+        </dt>
+        <dd>Retrieve the iRODS configuration</dd>
+      </dl><dl><dt>
+
           <code><a href="sodar_create_irods.html">sodar_create_irods()</a></code>
 
         </dt>
         <dd>Create an iRODS collection for a project</dd>
-      </dl><dl><dt>
-
-          <code><a href="sodar_delete_request.html">sodar_delete_request()</a></code> <code><a href="sodar_delete_request.html">sodar_request_list()</a></code> <code><a href="sodar_delete_request.html">sodar_request_cancel()</a></code> <code><a href="sodar_delete_request.html">sodar_request_reject()</a></code> <code><a href="sodar_delete_request.html">sodar_request_accept()</a></code>
-
-        </dt>
-        <dd>Create and process iRODS data requests</dd>
       </dl><dl><dt>
 
           <code><a href="sodar_file_exists.html">sodar_file_exists()</a></code>
@@ -84,17 +165,22 @@
         <dd>List files present in a project sample data repository</dd>
       </dl><dl><dt>
 
-          <code><a href="sodar_investigation_retrieve.html">sodar_investigation_retrieve()</a></code>
+          <code><a href="sodar_assay_irods_path.html">sodar_assay_irods_path()</a></code> <code><a href="sodar_assay_irods_path.html">sodar_study_irods_path()</a></code>
 
         </dt>
-        <dd>Retrieve details of an investigation from a project</dd>
-      </dl><dl><dt>
+        <dd>Retrieve the iRODS path of an assay or study</dd>
+      </dl></div><div class="section level2">
+      <h2 id="landing-zone-management">Landing Zone management<a class="anchor" aria-label="anchor" href="#landing-zone-management"></a></h2>
 
-          <code><a href="sodar_irods_configuration.html">sodar_irods_configuration()</a></code>
+      <div class="section-desc"><p>Functions for managing the landing zones</p></div>
 
-        </dt>
-        <dd>Retrieve the iRODS configuration</dd>
-      </dl><dl><dt>
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
 
           <code><a href="sodar_lz_create.html">sodar_lz_create()</a></code>
 
@@ -112,56 +198,43 @@
 
         </dt>
         <dd>Handling existing landing zones</dd>
-      </dl><dl><dt>
+      </dl></div><div class="section level2">
+      <h2 id="deletion-requests">Deletion requests<a class="anchor" aria-label="anchor" href="#deletion-requests"></a></h2>
 
-          <code><a href="sodar_project_create.html">sodar_project_create()</a></code>
+      <div class="section-desc"><p>Functions for managing deletion requests</p></div>
 
-        </dt>
-        <dd>Create a new project in SODAR</dd>
-      </dl><dl><dt>
 
-          <code><a href="sodar_project_list.html">sodar_project_list()</a></code>
+    </div><div class="section level2">
 
-        </dt>
-        <dd>Get the SODAR project list table.</dd>
-      </dl><dl><dt>
 
-          <code><a href="sodar_project_retrieve.html">sodar_project_retrieve()</a></code>
 
-        </dt>
-        <dd>Retrieve details of a project or category</dd>
-      </dl><dl><dt>
 
-          <code><a href="sodar_project_update.html">sodar_project_update()</a></code>
+      <dl><dt>
+
+          <code><a href="sodar_delete_request.html">sodar_delete_request()</a></code> <code><a href="sodar_delete_request.html">sodar_request_list()</a></code> <code><a href="sodar_delete_request.html">sodar_request_cancel()</a></code> <code><a href="sodar_delete_request.html">sodar_request_reject()</a></code> <code><a href="sodar_delete_request.html">sodar_request_accept()</a></code>
 
         </dt>
-        <dd>Update a project or category in SODAR</dd>
-      </dl><dl><dt>
+        <dd>Create and process iRODS data requests</dd>
+      </dl></div><div class="section level2">
+      <h2 id="tickets">Tickets<a class="anchor" aria-label="anchor" href="#tickets"></a></h2>
 
-          <code><a href="sodar_sheet_export_zip.html">sodar_sheet_export_zip()</a></code> <code><a href="sodar_sheet_export_zip.html">sodar_sheet_export_json()</a></code>
+      <div class="section-desc"><p>Functions for managing tickets</p></div>
 
-        </dt>
-        <dd>Export an ISAtab sample sheet from a project</dd>
-      </dl><dl><dt>
 
-          <code><a href="sodar_sheet_import.html">sodar_sheet_import()</a></code>
+    </div><div class="section level2">
 
-        </dt>
-        <dd>Import an ISAtab sample sheet from a file</dd>
-      </dl><dl><dt>
+
+
+
+      <dl><dt>
 
           <code><a href="sodar_ticket_create.html">sodar_ticket_create()</a></code> <code><a href="sodar_ticket_create.html">sodar_ticket_list()</a></code> <code><a href="sodar_ticket_create.html">sodar_ticket_retrieve()</a></code> <code><a href="sodar_ticket_create.html">sodar_ticket_delete()</a></code>
 
         </dt>
         <dd>Manage SODAR iRODS tickets</dd>
-      </dl><dl><dt>
-
-          <code><a href="sodar_whoami.html">sodar_whoami()</a></code>
-
-        </dt>
-        <dd>Returns information about the user making the request</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

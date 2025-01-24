@@ -2,7 +2,7 @@ pandoc: 2.19.2
 pkgdown: 2.1.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-01-24T17:10Z
+last_built: 2025-01-24T17:25Z
 urls:
   reference: https://bihealth.github.io/LimsaR/reference
   article: https://bihealth.github.io/LimsaR/articles

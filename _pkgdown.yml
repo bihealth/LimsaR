@@ -2,4 +2,48 @@ url: https://bihealth.github.io/LimsaR/
 template:
   bootstrap: 5
   bootswatch: cerulean
+reference:
+  - title: Configuration
+    desc: Functions for configuring SODAR and iRODS
+    contents:
+      - sodar_config
+      - sodar_whoami
+      - sodar_irods_configuration
+  - title: Project management
+    desc: Functions for managing projects
+    contents:
+      - sodar_project_create
+      - sodar_project_list
+      - sodar_project_update
+      - sodar_project_retrieve
+      - sodar_category_list
+  - title: Sample sheets & co.
+    desc: Functions for managing sample sheets and investigations
+    contents:
+      - sodar_investigation_retrieve
+      - sodar_sheet_import
+      - sodar_sheet_export_zip
+      - sodar_sheet_export_json
+  - title: iRODS related functions
+    desc: Functions related to iRODS and iRODS paths
+    contents:
+      - sodar_irods_configuration
+      - sodar_create_irods
+      - starts_with("sodar_file")
+      - sodar_study_irods_path
+      - sodar_assay_irods_path
+  - title: Landing Zone management
+    desc: Functions for managing the landing zones
+    contents:
+      - starts_with("sodar_lz")
+  - title: Deletion requests
+    desc: Functions for managing deletion requests
+    contents:
+      - starts_with("sodar_delete")
+      - starts_with("sodar_request")
+  - title: Tickets
+    desc: Functions for managing tickets
+    contents:
+      - starts_with("sodar_ticket")
+
 
