@@ -1,0 +1,5 @@
+url: https://bihealth.github.io/LimsaR/
+template:
+  bootstrap: 5
+  bootswatch: cerulean
+
