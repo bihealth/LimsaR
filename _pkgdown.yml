@@ -17,6 +17,9 @@ reference:
       - sodar_project_update
       - sodar_project_retrieve
       - sodar_category_list
+      - sodar_user_list
+      - sodar_user_role_create
+      - sodar_user_role_update
   - title: Sample sheets & co.
     desc: Functions for managing sample sheets and investigations
     contents:

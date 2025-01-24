@@ -11,6 +11,8 @@ This vignette documents the implementation of the SODAR API in the LimsaR
 package.
 
 
+
+
 ### Sample Sheets API (`samplesheets.views_api`):
 
 | SODAR API function | SODAR API link | LimsaR function |
@@ -66,8 +68,8 @@ package.
 | `ProjectRetrieveAPIView` | `/project/api/retrieve/{Project.sodar_uuid}`  |  `sodar_project_retrieve `  |
 | `ProjectCreateAPIView` | `/project/api/create`  |  `sodar_project_create `  |
 | `ProjectUpdateAPIView` | `/project/api/update/{Project.sodar_uuid}`  |  `sodar_project_update `  |
-| `RoleAssignmentCreateAPIView` | `/project/api/roles/create/{Project.sodar_uuid}`  |  ` `  |
-| `RoleAssignmentUpdateAPIView` | `/project/api/roles/update/{RoleAssignment.sodar_uuid}`  |  ` `  |
+| `RoleAssignmentCreateAPIView` | `/project/api/roles/create/{Project.sodar_uuid}`  |  `sodar_user_role_create `  |
+| `RoleAssignmentUpdateAPIView` | `/project/api/roles/update/{RoleAssignment.sodar_uuid}`  |  `sodar_user_role_update `  |
 | `RoleAssignmentDestroyAPIView` | `/project/api/roles/destroy/{RoleAssignment.sodar_uuid}`  |  ` `  |
 | `RoleAssignmentOwnerTransferAPIView` | `/project/api/roles/owner-transfer/{Project.sodar_uuid}`  |  ` `  |
 | `ProjectInviteListAPIView` | `/project/api/invites/list/{Project.sodar_uuid}`  |  ` `  |
@@ -78,9 +80,8 @@ package.
 | `ProjectSettingSetAPIView` | `project/api/settings/set/{Project.sodar_uuid}`  |  ` `  |
 | `UserSettingRetrieveAPIView` | `project/api/settings/retrieve/user`  |  ` `  |
 | `UserSettingSetAPIView` | `project/api/settings/set/user`  |  ` `  |
-| `UserListAPIView` | `/project/api/users/list`  |  ` `  |
+| `UserListAPIView` | `/project/api/users/list`  |  `sodar_user_list `  |
 | `CurrentUserRetrieveAPIView` | `/project/api/users/current`  |  `sodar_whoami `  |
-
 
 
 

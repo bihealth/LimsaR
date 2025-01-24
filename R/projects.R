@@ -202,5 +202,52 @@ sodar_project_retrieve <- function(project_uuid,
   return(ret)
 }
 
+#' List all SODAR users
+#'
+#' List all SODAR users
+#' @inheritParams sodar_whoami
+#' @return A color data frame (colorDF) containing the SODAR user list.
+#' @export
+sodar_user_list <- function(config = NULL, verbose = getOption("verbose", default = FALSE), return_raw = FALSE) {
+
+  response <- .request_get("/project/api/users/list", config, verbose = verbose)
+  return(.request_process(response, return_raw = return_raw))
+}
+
+#' Create or modify a new user in a project
+#'
+#' These functions create  a new user in a project or modify the role of an existing user.
+#'
+#' @param project_uuid A character string containing the UUID of the project.
+#' @param user_uuid A character string containing the UUID of the user.
+#' This must be an existing user in the SODAR instance.
+#' @param role A character string containing the role of the user in the project.
+#' @inheritParams sodar_whoami
+#' @return A list with the details of the user created.
+#' @seealso sodar_user_list
+#' @export
+sodar_user_role_create <- function(project_uuid, user_uuid, role, 
+                            config = NULL, 
+                            verbose = getOption("verbose", default = FALSE), 
+                            return_raw = FALSE) {
+
+  body <- list(user = user_uuid, role = role)
+  url <- paste0("/project/api/roles/create/", project_uuid)
+  response <- .request_post(url, config, body, verbose = verbose)
+  return(.request_process(response, return_raw = return_raw))
+}
+
+#' @rdname sodar_user_role_create
+#' @export
+sodar_user_role_update <- function(project_uuid, user_uuid, role, 
+                            config = NULL, 
+                            verbose = getOption("verbose", default = FALSE), 
+                            return_raw = FALSE) {
+
+  body <- list(user = user_uuid, role = role)
+  url <- paste0("/project/api/roles/update/", project_uuid)
+  response <- .request_post(url, config, body, verbose = verbose)
+  return(.request_process(response, return_raw = return_raw))
+}
 
 
