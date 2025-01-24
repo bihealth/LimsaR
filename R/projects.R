@@ -234,7 +234,7 @@ sodar_user_role_create <- function(project_uuid, user_uuid, role,
   body <- list(user = user_uuid, role = role)
   url <- paste0("/project/api/roles/create/", project_uuid)
   response <- .request_post(url, config, body, verbose = verbose)
-  return(.request_process(response, return_raw = return_raw))
+  return(.request_process(response, return_raw = return_raw, expect = 201))
 }
 
 #' @rdname sodar_user_role_create
