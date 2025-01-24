@@ -13,9 +13,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
     colorDF,
-    dplyr,
     httr,
-    isaeditor (>= 0.1.1),
     jsonlite
 Remotes: 
     github::bihealth/isaeditor

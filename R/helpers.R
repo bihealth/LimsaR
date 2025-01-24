@@ -1,4 +1,5 @@
-#' @importFrom httr DELETE GET PATCH POST
+#' @importFrom httr DELETE GET PATCH POST verbose
+
 
 # if config is null, try to get it from the global options
 .get_sodar_config <- function(config = NULL) {
