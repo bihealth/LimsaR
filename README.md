@@ -77,30 +77,6 @@ The tables below contain the current SODAR API and the names of
 corresponding LimsaR functions.
 
 
-### ProjectRoles:
-
-| SODAR API function | SODAR API link | Section | Description | LimsaR function |
-|--------------------|----------------|---------|-------------|-----------------|
-| `projectroles.views_api.ProjectListAPIView` | `/project/api/list`  | ProjectRoles |   |  `sodar_project_list`  |
-| `projectroles.views_api.ProjectRetrieveAPIView` | `/project/api/retrieve/{Project.sodar_uuid}`  | ProjectRoles |   |  `sodar_project_retrieve`  |
-| `projectroles.views_api.ProjectCreateAPIView` | `/project/api/create`  | ProjectRoles |   |  `sodar_project_create`  |
-| `projectroles.views_api.ProjectUpdateAPIView` | `/project/api/update/{Project.sodar_uuid}`  | ProjectRoles |   |  `sodar_project_update`  |
-| `projectroles.views_api.RoleAssignmentCreateAPIView` | `/project/api/roles/create/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.RoleAssignmentUpdateAPIView` | `/project/api/roles/update/{RoleAssignment.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.RoleAssignmentDestroyAPIView` | `/project/api/roles/destroy/{RoleAssignment.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.RoleAssignmentOwnerTransferAPIView` | `/project/api/roles/owner-transfer/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.ProjectInviteListAPIView` | `/project/api/invites/list/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.ProjectInviteCreateAPIView` | `/project/api/invites/create/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.ProjectInviteRevokeAPIView` | `/project/api/invites/revoke/{ProjectInvite.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.ProjectInviteResendAPIView` | `/project/api/invites/resend/{ProjectInvite.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.ProjectSettingRetrieveAPIView` | `project/api/settings/retrieve/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.ProjectSettingSetAPIView` | `project/api/settings/set/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.UserSettingRetrieveAPIView` | `project/api/settings/retrieve/user`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.UserSettingSetAPIView` | `project/api/settings/set/user`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.UserListAPIView` | `/project/api/users/list`  | ProjectRoles |   |  ``  |
-| `projectroles.views_api.CurrentUserRetrieveAPIView` | `/project/api/users/current`  | ProjectRoles |   |  `sodar_whoami`  |
-
-
 ### SampleSheets:
 
 | SODAR API function | SODAR API link | Section | Description | LimsaR function |
@@ -146,6 +122,31 @@ corresponding LimsaR functions.
 | SODAR API function | SODAR API link | Section | Description | LimsaR function |
 |--------------------|----------------|---------|-------------|-----------------|
 | `irodsinfo.views_api.IrodsEnvRetrieveAPIView` | `/irods/api/environment`  | iRODSinfo |   |  ``  |
+
+
+### ProjectRoles:
+
+| SODAR API function | SODAR API link | Section | Description | LimsaR function |
+|--------------------|----------------|---------|-------------|-----------------|
+| `projectroles.views_api.ProjectListAPIView` | `/project/api/list`  | ProjectRoles |   |  `sodar_project_list`  |
+| `projectroles.views_api.ProjectRetrieveAPIView` | `/project/api/retrieve/{Project.sodar_uuid}`  | ProjectRoles |   |  `sodar_project_retrieve`  |
+| `projectroles.views_api.ProjectCreateAPIView` | `/project/api/create`  | ProjectRoles |   |  `sodar_project_create`  |
+| `projectroles.views_api.ProjectUpdateAPIView` | `/project/api/update/{Project.sodar_uuid}`  | ProjectRoles |   |  `sodar_project_update`  |
+| `projectroles.views_api.RoleAssignmentCreateAPIView` | `/project/api/roles/create/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.RoleAssignmentUpdateAPIView` | `/project/api/roles/update/{RoleAssignment.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.RoleAssignmentDestroyAPIView` | `/project/api/roles/destroy/{RoleAssignment.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.RoleAssignmentOwnerTransferAPIView` | `/project/api/roles/owner-transfer/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.ProjectInviteListAPIView` | `/project/api/invites/list/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.ProjectInviteCreateAPIView` | `/project/api/invites/create/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.ProjectInviteRevokeAPIView` | `/project/api/invites/revoke/{ProjectInvite.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.ProjectInviteResendAPIView` | `/project/api/invites/resend/{ProjectInvite.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.ProjectSettingRetrieveAPIView` | `project/api/settings/retrieve/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.ProjectSettingSetAPIView` | `project/api/settings/set/{Project.sodar_uuid}`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.UserSettingRetrieveAPIView` | `project/api/settings/retrieve/user`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.UserSettingSetAPIView` | `project/api/settings/set/user`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.UserListAPIView` | `/project/api/users/list`  | ProjectRoles |   |  ``  |
+| `projectroles.views_api.CurrentUserRetrieveAPIView` | `/project/api/users/current`  | ProjectRoles |   |  `sodar_whoami`  |
+
 
 
 
