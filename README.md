@@ -121,7 +121,7 @@ corresponding LimsaR functions.
 
 | SODAR API function | SODAR API link | Section | Description | LimsaR function |
 |--------------------|----------------|---------|-------------|-----------------|
-| `irodsinfo.views_api.IrodsEnvRetrieveAPIView` | `/irods/api/environment`  | iRODSinfo |   |  ``  |
+| `irodsinfo.views_api.IrodsEnvRetrieveAPIView` | `/irods/api/environment`  | iRODSinfo |   |  `sodar_irods_configuration`  |
 
 
 ### ProjectRoles:
