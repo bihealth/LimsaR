@@ -5,14 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Client for SODAR • LimsaR</title>
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
-<link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Client for SODAR">
-<meta name="description" content="Allows to communicate with a SODAR server. Provides functions to query projects, download and upload sample sheets, create and activate landing zones etc.">
-<meta property="og:description" content="Allows to communicate with a SODAR server. Provides functions to query projects, download and upload sample sheets, create and activate landing zones etc.">
+<title>Implementation of the SODAR API • LimsaR</title>
+<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Implementation of the SODAR API">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -20,7 +18,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">LimsaR</a>
+    <a class="navbar-brand me-2" href="../index.html">LimsaR</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
 
@@ -31,72 +29,44 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="active nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/sodar_api.html">Implementation of the SODAR API</a></li>
+<li><a class="dropdown-item" href="../articles/sodar_api.html">Implementation of the SODAR API</a></li>
   </ul>
 </li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
       </ul>
 </div>
 
 
   </div>
-</nav><div class="container template-home">
+</nav><div class="container template-article">
+
+
+
+
 <div class="row">
-  <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="limsar">LimsaR<a class="anchor" aria-label="anchor" href="#limsar"></a>
-</h1></div>
-<!-- badges: start -->
-<!-- badges: end -->
-<p>A simple implementation of the <a href="https://www.cubi.bihealth.org/software/sodar/" class="external-link">SODAR</a> API to access the SODAR features from R.</p>
-<div class="section level2">
-<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
-</h2>
-<p>You can install the development version of LimsaR from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"bihealth/LimsaR"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
-</h2>
-<p>First, you need to know what your SODAR server is. For example, it can be <a href="https://sodar-demo.cubi.bihealth.org/" class="external-link">https://sodar-demo.cubi.bihealth.org/</a>.</p>
-<p>Second you need to get hold of the <a href="https://sodar-server.readthedocs.io/en/latest/ui_api_tokens.html" class="external-link">API token</a>. Without the token, you will not be able to work with LimsaR.</p>
-<p>Once you have the server and the token, say, ‘asdfb891823basdfuwerbce’, before you start working you need to configure your access.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bihealth.github.io/LimsaR/">LimsaR</a></span><span class="op">)</span></span>
-<span><span class="va">token</span> <span class="op">&lt;-</span> <span class="st">"asdfb891823basdfuwerbce"</span></span>
-<span><span class="va">sodar_url</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://sodar-demo.cubi.bihealth.org"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/sodar_config.html">sodar_config</a></span><span class="op">(</span><span class="va">token</span>, <span class="va">sodar_url</span><span class="op">)</span></span></code></pre></div>
-<p>Now you can get a data frame containing the projects and categories that are visible to you:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">projects</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sodar_project_list.html">sodar_project_list</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>Or check exactly who you are:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/sodar_whoami.html">sodar_whoami</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>A large part of the SODAR API is implemented. You can create and modify the projects. You can upload and download sample sheets. You can create and manipulate tickets, landing zones and delete requests. For example, if you have a project UUID and the project has a study and iRODS associated, you can create a landing zone with</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">lz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sodar_lz_create.html">sodar_lz_create</a></span><span class="op">(</span><span class="va">project_uuid</span><span class="op">)</span></span>
-<span><span class="co"># gets the UUID of the LZ</span></span>
-<span><span class="va">lz_uuid</span> <span class="op">&lt;-</span> <span class="va">lz</span><span class="op">$</span><span class="va">sodar_uuid</span></span></code></pre></div>
-<p>and then check its status, and validate and move it with</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/sodar_lz_retrieve.html">sodar_lz_status</a></span><span class="op">(</span><span class="va">lz_uuid</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/sodar_lz_retrieve.html">sodar_lz_move</a></span><span class="op">(</span><span class="va">lz_uuid</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="sodar-api-vs-limsar">SODAR API vs LimsaR<a class="anchor" aria-label="anchor" href="#sodar-api-vs-limsar"></a>
-</h2>
-<p>The tables below contain the current SODAR API and the names of corresponding LimsaR functions.</p>
+  <main id="main" class="col-md-9"><div class="page-header">
+
+      <h1>Implementation of the SODAR API</h1>
+            
+      
+
+      <div class="d-none name"><code>sodar_api.Rmd</code></div>
+    </div>
+
+    
+    
+<p>This vignette documents the implementation of the SODAR API in the
+LimsaR package.</p>
 <div class="section level3">
-<h3 id="sample-sheets-api-samplesheetsviews_api">Sample Sheets API (<code>samplesheets.views_api</code>):<a class="anchor" aria-label="anchor" href="#sample-sheets-api-samplesheetsviews_api"></a>
+<h3 id="sample-sheets-api-samplesheets-views_api">Sample Sheets API (<code>samplesheets.views_api</code>):<a class="anchor" aria-label="anchor" href="#sample-sheets-api-samplesheets-views_api"></a>
 </h3>
 <table class="table">
 <colgroup>
@@ -123,13 +93,15 @@
 <tr class="odd">
 <td><code>SheetISAExportAPIView</code></td>
 <td>
-<code>/samplesheets/api/export/zip/{Project.sodar_uuid}</code> for zip export</td>
+<code>/samplesheets/api/export/zip/{Project.sodar_uuid}</code> for
+zip export</td>
 <td><code>sodar_sheet_export_zip</code></td>
 </tr>
 <tr class="even">
 <td><code>SheetISAExportAPIView</code></td>
 <td>
-<code>/samplesheets/api/export/json/{Project.sodar_uuid}</code> for JSON export</td>
+<code>/samplesheets/api/export/json/{Project.sodar_uuid}</code> for
+JSON export</td>
 <td><code>sodar_sheet_export_json</code></td>
 </tr>
 <tr class="odd">
@@ -211,7 +183,7 @@
 </table>
 </div>
 <div class="section level3">
-<h3 id="landing-zones-api-landingzonesview_api">Landing Zones API (<code>landingzones.view_api</code>):<a class="anchor" aria-label="anchor" href="#landing-zones-api-landingzonesview_api"></a>
+<h3 id="landing-zones-api-landingzones-view_api">Landing Zones API (<code>landingzones.view_api</code>):<a class="anchor" aria-label="anchor" href="#landing-zones-api-landingzones-view_api"></a>
 </h3>
 <table class="table">
 <colgroup>
@@ -253,20 +225,22 @@
 <tr class="even">
 <td><code>ZoneSubmitMoveAPIView</code></td>
 <td>
-<code>/landingzones/api/submit/validate/{LandingZone.sodar_uuid}</code> for Validation</td>
+<code>/landingzones/api/submit/validate/{LandingZone.sodar_uuid}</code>
+for Validation</td>
 <td><code>sodar_lz_validate</code></td>
 </tr>
 <tr class="odd">
 <td><code>ZoneSubmitMoveAPIView</code></td>
 <td>
-<code>/landingzones/api/submit/move/{LandingZone.sodar_uuid}</code> for Moving</td>
+<code>/landingzones/api/submit/move/{LandingZone.sodar_uuid}</code>
+for Moving</td>
 <td><code>sodar_lz_move</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section level3">
-<h3 id="irods-info-api-irodsinfoview_api">iRODS info API (<code>irodsinfo.view_api</code>):<a class="anchor" aria-label="anchor" href="#irods-info-api-irodsinfoview_api"></a>
+<h3 id="irods-info-api-irodsinfo-view_api">iRODS info API (<code>irodsinfo.view_api</code>):<a class="anchor" aria-label="anchor" href="#irods-info-api-irodsinfo-view_api"></a>
 </h3>
 <table class="table">
 <colgroup>
@@ -287,7 +261,7 @@
 </table>
 </div>
 <div class="section level3">
-<h3 id="project-roles-api-projectrolesview_api">Project Roles API (<code>projectroles.view_api</code>):<a class="anchor" aria-label="anchor" href="#project-roles-api-projectrolesview_api"></a>
+<h3 id="project-roles-api-projectroles-view_api">Project Roles API (<code>projectroles.view_api</code>):<a class="anchor" aria-label="anchor" href="#project-roles-api-projectroles-view_api"></a>
 </h3>
 <table class="table">
 <colgroup>
@@ -394,40 +368,10 @@
 </tbody>
 </table>
 </div>
-</div>
-<div class="section level2">
-<h2 id="why-limsar">Why LimsaR<a class="anchor" aria-label="anchor" href="#why-limsar"></a>
-</h2>
-<p>Limsa is “Soda” in Finnish.</p>
-</div>
-</div>
-  </main><aside class="col-md-3"><div class="license">
-<h2 data-toc-skip>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
-</ul>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
-
-<div class="citation">
-<h2 data-toc-skip>Citation</h2>
-<ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing LimsaR</a></li>
-</ul>
-</div>
-
-<div class="developers">
-<h2 data-toc-skip>Developers</h2>
-<ul class="list-unstyled">
-<li>January Weiner <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-1438-7819" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-</ul>
-</div>
-
-
-
-  </aside>
-</div>
 
 
     <footer><div class="pkgdown-footer-left">

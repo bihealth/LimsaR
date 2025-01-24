@@ -1,0 +1,87 @@
+---
+title: "Implementation of the SODAR API"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Implementation of the SODAR API}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette documents the implementation of the SODAR API in the LimsaR
+package.
+
+
+### Sample Sheets API (`samplesheets.views_api`):
+
+| SODAR API function | SODAR API link | LimsaR function |
+|--------------------|----------------|-----------------|
+| `InvestigationRetrieveAPIView` | `/samplesheets/api/investigation/retrieve/{Project.sodar_uuid}`  |  `sodar_investigation_retrieve `  |
+| `SheetImportAPIView` | `/samplesheets/api/import/{Project.sodar_uuid}`  |  `sodar_sheet_import `  |
+| `SheetISAExportAPIView` | `/samplesheets/api/export/zip/{Project.sodar_uuid}`  for zip export |  `sodar_sheet_export_zip `  |
+| `SheetISAExportAPIView` | `/samplesheets/api/export/json/{Project.sodar_uuid}`  for JSON export |  `sodar_sheet_export_json `  |
+| `IrodsCollsCreateAPIView` | `/samplesheets/api/irods/collections/create/{Project.sodar_uuid}`  |  `sodar_create_irods `  |
+| `SampleDataFileExistsAPIView` | `/samplesheets/api/file/exists`  |  `sodar_file_exists `  |
+| `ProjectIrodsFileListAPIView` | `/samplesheets/api/file/list/{Project.sodar_uuid}`  |  `sodar_file_list `  |
+| `IrodsAccessTicketRetrieveAPIView` | `/samplesheets/api/irods/ticket/retrieve/{IrodsAccessTicket.sodar_uuid}`  |  `sodar_ticket_retrieve `  |
+| `IrodsAccessTicketListAPIView` | `/samplesheets/api/irods/ticket/list/{Project.sodar_uuid}`  |  `sodar_ticket_list `  |
+| `IrodsAccessTicketCreateAPIView` | `/samplesheets/api/irods/ticket/create/{Project.sodar_uuid}`  |  `sodar_ticket_create `  |
+| `IrodsAccessTicketUpdateAPIView` | `/samplesheets/api/irods/ticket/update/{IrodsAccessTicket.sodar_uuid}`  |  ` `  |
+| `IrodsAccessTicketDestroyAPIView` | `/samplesheets/api/irods/ticket/delete/{IrodsAccessTicket.sodar_uuid}`  |  `sodar_ticket_delete `  |
+| `IrodsDataRequestRetrieveAPIView` | `/samplesheets/api/irods/request/retrieve/{IrodsDataRequest.sodar_uuid}`  |  ` `  |
+| `IrodsDataRequestListAPIView` | `/samplesheets/api/irods/requests/{Project.sodar_uuid}`  |  `sodar_request_list `  |
+| `IrodsDataRequestCreateAPIView` | `/samplesheets/api/irods/request/create/{Project.sodar_uuid}`  |  ` `  |
+| `IrodsDataRequestUpdateAPIView` | `/samplesheets/api/irods/request/update/{IrodsDataRequest.sodar_uuid}`  |  ` `  |
+| `IrodsDataRequestDestroyAPIView` | `/samplesheets/api/irods/request/delete/{IrodsDataRequest.sodar_uuid}`  |  `sodar_delete_request `  |
+| `IrodsDataRequestAcceptAPIView` | `/samplesheets/api/irods/request/accept/{IrodsDataRequest.sodar_uuid}`  |  `sodar_request_accept `  |
+| `IrodsDataRequestRejectAPIView` | `/samplesheets/api/irods/request/reject/{IrodsDataRequest.sodar_uuid}`  |  `sodar_request_reject `  |
+
+
+
+### Landing Zones API (`landingzones.view_api`):
+
+| SODAR API function | SODAR API link | LimsaR function |
+|--------------------|----------------|-----------------|
+| `ZoneListAPIView` | `/landingzones/api/list/{Project.sodar_uuid}?finished={integer}`  |  `sodar_lz_list `  |
+| `ZoneRetrieveAPIView` | `/landingzones/api/retrieve/{LandingZone.sodar_uuid}`  |  `sodar_lz_retrieve `  |
+| `ZoneCreateAPIView` | `/landingzones/api/create/{Project.sodar_uuid}`  |  `sodar_lz_create `  |
+| `ZoneUpdateAPIView` | `/landingzones/api/update/{LandingZone.sodar_uuid}`  |  ` `  |
+| `ZoneSubmitDeleteAPIView` | `/landingzones/api/submit/delete/{LandingZone.sodar_uuid}`  |  `sodar_lz_delete `  |
+| `ZoneSubmitMoveAPIView` | `/landingzones/api/submit/validate/{LandingZone.sodar_uuid}`  for Validation |  `sodar_lz_validate `  |
+| `ZoneSubmitMoveAPIView` | `/landingzones/api/submit/move/{LandingZone.sodar_uuid}`  for Moving |  `sodar_lz_move `  |
+
+
+
+### iRODS info API (`irodsinfo.view_api`):
+
+| SODAR API function | SODAR API link | LimsaR function |
+|--------------------|----------------|-----------------|
+| `IrodsEnvRetrieveAPIView` | `/irods/api/environment`  |  `sodar_irods_configuration `  |
+
+
+### Project Roles API (`projectroles.view_api`):
+
+| SODAR API function | SODAR API link | LimsaR function |
+|--------------------|----------------|-----------------|
+| `ProjectListAPIView` | `/project/api/list`  |  `sodar_project_list `  |
+| `ProjectRetrieveAPIView` | `/project/api/retrieve/{Project.sodar_uuid}`  |  `sodar_project_retrieve `  |
+| `ProjectCreateAPIView` | `/project/api/create`  |  `sodar_project_create `  |
+| `ProjectUpdateAPIView` | `/project/api/update/{Project.sodar_uuid}`  |  `sodar_project_update `  |
+| `RoleAssignmentCreateAPIView` | `/project/api/roles/create/{Project.sodar_uuid}`  |  ` `  |
+| `RoleAssignmentUpdateAPIView` | `/project/api/roles/update/{RoleAssignment.sodar_uuid}`  |  ` `  |
+| `RoleAssignmentDestroyAPIView` | `/project/api/roles/destroy/{RoleAssignment.sodar_uuid}`  |  ` `  |
+| `RoleAssignmentOwnerTransferAPIView` | `/project/api/roles/owner-transfer/{Project.sodar_uuid}`  |  ` `  |
+| `ProjectInviteListAPIView` | `/project/api/invites/list/{Project.sodar_uuid}`  |  ` `  |
+| `ProjectInviteCreateAPIView` | `/project/api/invites/create/{Project.sodar_uuid}`  |  ` `  |
+| `ProjectInviteRevokeAPIView` | `/project/api/invites/revoke/{ProjectInvite.sodar_uuid}`  |  ` `  |
+| `ProjectInviteResendAPIView` | `/project/api/invites/resend/{ProjectInvite.sodar_uuid}`  |  ` `  |
+| `ProjectSettingRetrieveAPIView` | `project/api/settings/retrieve/{Project.sodar_uuid}`  |  ` `  |
+| `ProjectSettingSetAPIView` | `project/api/settings/set/{Project.sodar_uuid}`  |  ` `  |
+| `UserSettingRetrieveAPIView` | `project/api/settings/retrieve/user`  |  ` `  |
+| `UserSettingSetAPIView` | `project/api/settings/set/user`  |  ` `  |
+| `UserListAPIView` | `/project/api/users/list`  |  ` `  |
+| `CurrentUserRetrieveAPIView` | `/project/api/users/current`  |  `sodar_whoami `  |
+
+
+
+
+
