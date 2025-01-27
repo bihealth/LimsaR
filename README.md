@@ -41,7 +41,7 @@ sodar_config(token, sodar_url)
 
 If you are a user of [cubi-tk](https://github.com/bihealth/cubi-tk),
 chances are you have already set up the SODAR configuration in your
-`~/.cubitkrc.toml` file. In that case, you can use the `configur` package
+`~/.cubitkrc.toml` file. In that case, you can use the `configr` package
 to load the configuration:
 
 
