@@ -19,6 +19,8 @@ devtools::install_github("bihealth/LimsaR")
 
 ## Quick start
 
+### Authentication
+
 First, you need to know what your SODAR server is. For example, it can be 
 [https://sodar-demo.cubi.bihealth.org/](https://sodar-demo.cubi.bihealth.org/).
 
@@ -36,6 +38,26 @@ token <- "asdfb891823basdfuwerbce"
 sodar_url <- c("https://sodar-demo.cubi.bihealth.org")
 sodar_config(token, sodar_url)
 ```
+
+If you are a user of [cubi-tk](https://github.com/bihealth/cubi-tk),
+chances are you have already set up the SODAR configuration in your
+`~/.cubitkrc.toml` file. In that case, you can use the `configur` package
+to load the configuration:
+
+
+```r
+library(configr)
+
+access <- read.config("~/.cubitkrc.toml")
+
+sodar_config(sodar_api_token = access$global$sodar_api_token,
+             sodar_url = access$global$sodar_server_url)
+```
+
+
+
+
+### Working with SODAR
 
 Now you can get a data frame containing the projects and categories that
 are visible to you:

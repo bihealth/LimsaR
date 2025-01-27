@@ -67,6 +67,9 @@
 <div class="section level2">
 <h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
+<div class="section level3">
+<h3 id="authentication">Authentication<a class="anchor" aria-label="anchor" href="#authentication"></a>
+</h3>
 <p>First, you need to know what your SODAR server is. For example, it can be <a href="https://sodar-demo.cubi.bihealth.org/" class="external-link">https://sodar-demo.cubi.bihealth.org/</a>.</p>
 <p>Second you need to get hold of the <a href="https://sodar-server.readthedocs.io/en/latest/ui_api_tokens.html" class="external-link">API token</a>. Without the token, you will not be able to work with LimsaR.</p>
 <p>Once you have the server and the token, say, ‘asdfb891823basdfuwerbce’, before you start working you need to configure your access.</p>
@@ -75,21 +78,34 @@
 <span><span class="va">token</span> <span class="op">&lt;-</span> <span class="st">"asdfb891823basdfuwerbce"</span></span>
 <span><span class="va">sodar_url</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://sodar-demo.cubi.bihealth.org"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/sodar_config.html">sodar_config</a></span><span class="op">(</span><span class="va">token</span>, <span class="va">sodar_url</span><span class="op">)</span></span></code></pre></div>
-<p>Now you can get a data frame containing the projects and categories that are visible to you:</p>
+<p>If you are a user of <a href="https://github.com/bihealth/cubi-tk" class="external-link">cubi-tk</a>, chances are you have already set up the SODAR configuration in your <code>~/.cubitkrc.toml</code> file. In that case, you can use the <code>configur</code> package to load the configuration:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Miachol/configr" class="external-link">configr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">access</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/configr/man/read.config.html" class="external-link">read.config</a></span><span class="op">(</span><span class="st">"~/.cubitkrc.toml"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/sodar_config.html">sodar_config</a></span><span class="op">(</span>sodar_api_token <span class="op">=</span> <span class="va">access</span><span class="op">$</span><span class="va">global</span><span class="op">$</span><span class="va">sodar_api_token</span>,</span>
+<span>             sodar_url <span class="op">=</span> <span class="va">access</span><span class="op">$</span><span class="va">global</span><span class="op">$</span><span class="va">sodar_server_url</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="working-with-sodar">Working with SODAR<a class="anchor" aria-label="anchor" href="#working-with-sodar"></a>
+</h3>
+<p>Now you can get a data frame containing the projects and categories that are visible to you:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">projects</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sodar_project_list.html">sodar_project_list</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Or check exactly who you are:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sodar_whoami.html">sodar_whoami</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>A large part of the SODAR API is implemented. You can create and modify the projects. You can upload and download sample sheets. You can create and manipulate tickets, landing zones and delete requests. For example, if you have a project UUID and the project has a study and iRODS associated, you can create a landing zone with</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">lz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sodar_lz_create.html">sodar_lz_create</a></span><span class="op">(</span><span class="va">project_uuid</span><span class="op">)</span></span>
 <span><span class="co"># gets the UUID of the LZ</span></span>
 <span><span class="va">lz_uuid</span> <span class="op">&lt;-</span> <span class="va">lz</span><span class="op">$</span><span class="va">sodar_uuid</span></span></code></pre></div>
 <p>and then check its status, and validate and move it with</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sodar_lz_retrieve.html">sodar_lz_status</a></span><span class="op">(</span><span class="va">lz_uuid</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/sodar_lz_retrieve.html">sodar_lz_move</a></span><span class="op">(</span><span class="va">lz_uuid</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="why-limsar">Why LimsaR<a class="anchor" aria-label="anchor" href="#why-limsar"></a>
