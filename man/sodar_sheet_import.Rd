@@ -6,7 +6,8 @@
 \usage{
 sodar_sheet_import(
   project_uuid,
-  file,
+  zip = NULL,
+  dir = NULL,
   config = NULL,
   verbose = getOption("verbose", default = FALSE),
   return_raw = FALSE
@@ -15,13 +16,13 @@ sodar_sheet_import(
 \arguments{
 \item{project_uuid}{A character string containing the UUID of the project where the sample sheet will be imported.}
 
-\item{file}{A character string containing the path to the ISAtab zip file.}
-
 \item{config}{A list containing the SODAR configuration. If NULL, it tries to get it from the global options.}
 
 \item{verbose}{A logical value indicating whether to make verbose requests.}
 
 \item{return_raw}{A logical value indicating whether to return the raw response.}
+
+\item{file}{A character string containing the path to the ISAtab zip file.}
 }
 \value{
 A list with the details of the import outcome.

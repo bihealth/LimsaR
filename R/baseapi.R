@@ -51,14 +51,29 @@ sodar_investigation_retrieve <- function(project_uuid,
 #' @importFrom httr upload_file
 #' @return A list with the details of the import outcome.
 #' @export
-sodar_sheet_import <- function(project_uuid, file, config = NULL, verbose = getOption("verbose", default = FALSE), return_raw = FALSE) {
+sodar_sheet_import <- function(project_uuid, zip = NULL, dir = NULL, config = NULL, verbose = getOption("verbose", default = FALSE), return_raw = FALSE) {
 
   url <- paste0("/samplesheets/api/import/", project_uuid)
-  file_up <- upload_file(file)
-  body <- list(file = file_up)
+
+  if(is.null(zip) && is.null(dir)) {
+    stop("Either zip or dir must be provided.")
+  }
+
+  if(!is.null(zip)) {
+    file_up <- upload_file(file)
+    body <- list(file = file_up)
+  } else if(!is.null(dir)) {
+    files <- list.files(dir, include.dirs = FALSE, recursive = FALSE, full.names = TRUE)
+    names(files) <- basename(files)
+    body <- map(files, upload_file)
+  }
+
   response <- .request_post(url, config, body = body, encode = "multipart", verbose = verbose)
   return(.request_process(response, return_raw = return_raw))
 }
+
+
+
 
 #' Export an ISAtab sample sheet from a project
 #'
