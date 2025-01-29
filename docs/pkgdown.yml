@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   sodar_api: sodar_api.html
-last_built: 2025-01-27T09:07Z
+last_built: 2025-01-29T13:09Z
 urls:
   reference: https://bihealth.github.io/LimsaR/reference
   article: https://bihealth.github.io/LimsaR/articles

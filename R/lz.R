@@ -13,6 +13,7 @@
 #' @return A colorDF data frame with the details of the landing zones.
 #' Several columns are hidden for better readability, but can still be
 #' accessed.
+#' @export
 sodar_lz_list <- function(project_uuid, verbose = getOption("verbose", default = FALSE), config = NULL) {
 
   url <- paste0("/landingzones/api/list/", project_uuid)

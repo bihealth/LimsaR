@@ -119,6 +119,7 @@ sodar_create_irods <- function(project_uuid, config = NULL, verbose = getOption(
 #' @param md5 A character vector containing md5 checksums.
 #' @inheritParams sodar_whoami
 #' @return A named logical vector indicating whether the file exists.
+#' @export
 sodar_file_exists <- function(md5, config = NULL, 
                                    verbose = getOption("verbose", default = FALSE), 
                                    return_raw = FALSE) {
