@@ -23,7 +23,8 @@ sodar_sheet_export_json(
 \arguments{
 \item{project_uuid}{A character string containing the UUID of the project to export.}
 
-\item{file}{A character string containing the name of the file to be exported.}
+\item{file}{A character string containing the name of the file where the
+exported ISAtab zip will be saved.}
 
 \item{config}{A list containing the SODAR configuration. If NULL, it tries to get it from the global options.}
 

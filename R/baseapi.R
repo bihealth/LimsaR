@@ -79,10 +79,12 @@ sodar_sheet_import <- function(project_uuid, zip = NULL, dir = NULL, config = NU
 #'
 #' This function exports an ISAtab sample sheet from a project.
 #' @param project_uuid A character string containing the UUID of the project to export.
-#' @param file A character string containing the name of the file to be exported.
+#' @param file A character string containing the name of the file where the
+#'             exported ISAtab zip will be saved.
 #' @inheritParams sodar_whoami
 #' @return  * sodar_sheet_export_zip: The name of the file exported.
 #'  * sodar_sheet_export_json: A list with the exported isatab structure.
+#' @export
 sodar_sheet_export_zip <- function(project_uuid, file,
                                config = NULL, verbose = getOption("verbose", default = FALSE), return_raw = FALSE) {
 
